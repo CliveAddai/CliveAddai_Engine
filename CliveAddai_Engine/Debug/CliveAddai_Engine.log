@@ -1,0 +1,7 @@
+﻿  Game1.cpp
+  GameScene.cpp
+  Window.cpp
+  Timer.cpp
+C:\Users\Owner\Desktop\CliveAddai_GameEngines4\CliveAddai_Engine\Engine\Core\Timer.cpp(31,33): warning C4244: 'initializing': conversion from 'float' to 'unsigned int', possible loss of data
+  Generating Code...
+  CliveAddai_Engine.vcxproj -> C:\Users\Owner\Desktop\CliveAddai_GameEngines4\CliveAddai_Engine\Debug\CliveAddai_Engine.exe

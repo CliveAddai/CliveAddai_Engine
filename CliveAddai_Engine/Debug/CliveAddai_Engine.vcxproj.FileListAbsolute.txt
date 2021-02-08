@@ -1,0 +1,2 @@
+C:\Users\Owner\Desktop\CliveAddai_GameEngines4\CliveAddai_Engine\Debug\CliveAddai_Engine.exe
+C:\Users\Owner\Desktop\CliveAddai_GameEngines4\CliveAddai_Engine\Debug\CliveAddai_Engine.pdb
