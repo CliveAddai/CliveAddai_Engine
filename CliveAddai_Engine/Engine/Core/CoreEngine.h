@@ -8,7 +8,9 @@
 #include "GameInterface.h"
 #include "Scene.h"
 
-class CoreEngine 
+#include "../Rendering/3D/GameObject.h"
+
+class CoreEngine
 {
 public:
 	CoreEngine(const CoreEngine&) = delete;
@@ -50,3 +52,4 @@ private:
 };
 
 #endif //!COREENGINE_H
+

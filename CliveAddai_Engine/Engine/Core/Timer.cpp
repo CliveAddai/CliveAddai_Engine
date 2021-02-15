@@ -10,7 +10,7 @@ Timer::~Timer()
 
 }
 
-void Timer::Start() 
+void Timer::Start()
 {
 	prevTicks = currentTicks = SDL_GetTicks();
 }
@@ -26,10 +26,10 @@ float Timer::GetDeltaTime() const
 	return (currentTicks - prevTicks) / MILLI_TO_SEC;
 }
 
-unsigned int Timer::GetSleepTime(const unsigned int fps_) const
+unsigned int Timer::GetSleepTime(const unsigned int fps_) const 
 {
 	unsigned int milliSecsPerFrame = MILLI_TO_SEC / fps_;
-	if (milliSecsPerFrame == 0)
+	if (milliSecsPerFrame == 0) 
 	{
 		return 0;
 	}

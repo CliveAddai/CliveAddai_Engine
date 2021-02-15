@@ -3,11 +3,11 @@
 std::unique_ptr<CoreEngine> CoreEngine::engineInstance = nullptr;
 
 CoreEngine::CoreEngine() :window(nullptr), isRunning(false), fps(60),
-gameInterface(nullptr), currentSceneNum(0) 
+gameInterface(nullptr), currentSceneNum(0)
 {
 }
 
-CoreEngine::~CoreEngine() 
+CoreEngine::~CoreEngine()
 {
 
 }
@@ -25,7 +25,7 @@ bool CoreEngine::OnCreate(std::string name_, int width_, int height_)
 {
 	Debug::OnCreate();
 	window = new Window();
-	if (!window->OnCreate(name_, width_, height_))
+	if (!window->OnCreate(name_, width_, height_)) 
 	{
 		std::cout << "Window failed to initialize" << std::endl;
 		OnDestroy();
@@ -61,12 +61,12 @@ void CoreEngine::Run()
 	//}
 }
 
-void CoreEngine::Exit() 
+void CoreEngine::Exit()
 {
 	isRunning = false;
 }
 
-bool CoreEngine::GetIsRunning() const
+bool CoreEngine::GetIsRunning() const 
 {
 	return isRunning;
 }
@@ -76,30 +76,31 @@ int CoreEngine::GetCurrentScene() const
 	return currentSceneNum;
 }
 
-void CoreEngine::SetGameInterface(GameInterface* gameInterface_)
+void CoreEngine::SetGameInterface(GameInterface* gameInterface_) 
 {
 	gameInterface = gameInterface_;
 }
 
-void CoreEngine::SetCurrentScene(int sceneNum_) 
+void CoreEngine::SetCurrentScene(int sceneNum_)
 {
 	currentSceneNum = sceneNum_;
 }
 
 void CoreEngine::Update(const float deltaTime_) 
 {
-	if (gameInterface) 
+	if (gameInterface)
 	{
 		gameInterface->Update(deltaTime_);
 		std::cout << deltaTime_ << std::endl;
 	}
 }
 
-void CoreEngine::Render() 
+void CoreEngine::Render()
 {
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	if (gameInterface) {
+	if (gameInterface)
+	{
 		gameInterface->Render();
 	}
 	SDL_GL_SwapWindow(window->GetWindow());
@@ -116,3 +117,4 @@ void CoreEngine::OnDestroy()
 	SDL_Quit();
 	exit(0);
 }
+

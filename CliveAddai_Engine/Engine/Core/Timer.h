@@ -20,6 +20,7 @@ public:
 	unsigned int GetSleepTime(const unsigned int fps_) const;
 	float GetCurrentTickMilli() const;
 	float GetCurrentTickSec() const;
+
 private:
 	unsigned int prevTicks;
 	unsigned int currentTicks;
