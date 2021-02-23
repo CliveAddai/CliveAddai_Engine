@@ -5,10 +5,10 @@
 #include <string>
 #include <fstream>
 
-class Debug 
+class Debug
 {
 public:
-	enum class MessageType : unsigned short 
+	enum class MessageType : unsigned short
 	{
 		TYPE_NONE = 0,
 		TYPE_FATAL_ERROR,

@@ -1,17 +1,18 @@
 #include "Game1.h"
 
-Game1::Game1() : GameInterface(), currentSceneNum(0), currentScene(nullptr) 
+Game1::Game1() : GameInterface(), currentSceneNum(0), currentScene(nullptr)
 {
 
 }
 
-Game1::~Game1() 
+Game1::~Game1()
 {
 	delete currentScene;
 	currentScene = nullptr;
 
 }
-bool Game1::OnCreate() {
+bool Game1::OnCreate() 
+{
 	if (CoreEngine::GetInstance()->GetCurrentScene() == 0)
 	{
 		currentScene = new StartScene();
@@ -23,7 +24,8 @@ bool Game1::OnCreate() {
 
 }
 
-void Game1::Update(const float deltaTime_) {
+void Game1::Update(const float deltaTime_)
+{
 	if (currentSceneNum != CoreEngine::GetInstance()->GetCurrentScene()) 
 	{
 		BuildScene();
@@ -53,7 +55,7 @@ void Game1::BuildScene()
 	}
 
 	currentSceneNum = CoreEngine::GetInstance()->GetCurrentScene();
-	if (!currentScene->OnCreate()) 
+	if (!currentScene->OnCreate())
 	{
 		std::cout << "Scene failed to be created" << std::endl;
 		CoreEngine::GetInstance()->Exit();

@@ -14,27 +14,31 @@ CoreEngine::~CoreEngine()
 
 CoreEngine* CoreEngine::GetInstance() 
 {
-	if (engineInstance.get() == nullptr) 
+	if (engineInstance.get() == nullptr)
 	{
 		engineInstance.reset(new CoreEngine);
 	}
 	return engineInstance.get();
 }
 
-bool CoreEngine::OnCreate(std::string name_, int width_, int height_) 
+bool CoreEngine::OnCreate(std::string name_, int width_, int height_)
 {
 	Debug::OnCreate();
 	window = new Window();
-	if (!window->OnCreate(name_, width_, height_)) 
+	if (!window->OnCreate(name_, width_, height_))
 	{
 		std::cout << "Window failed to initialize" << std::endl;
 		OnDestroy();
 		return isRunning = false;
 	}
 
-	if (gameInterface)
+	ShaderHandler::GetInstance()->CreateProgram("colourShader",
+		"Engine/Shaders/ColourVertexShader.glsl",
+		"Engine/Shaders/ColourFragmentShader.glsl");
+
+	if (gameInterface) 
 	{
-		if (!gameInterface->OnCreate())
+		if (!gameInterface->OnCreate()) 
 		{
 			std::cout << "Game failed to initialize" << std::endl;
 			OnDestroy();
@@ -61,7 +65,7 @@ void CoreEngine::Run()
 	//}
 }
 
-void CoreEngine::Exit()
+void CoreEngine::Exit() 
 {
 	isRunning = false;
 }
@@ -71,7 +75,7 @@ bool CoreEngine::GetIsRunning() const
 	return isRunning;
 }
 
-int CoreEngine::GetCurrentScene() const
+int CoreEngine::GetCurrentScene() const 
 {
 	return currentSceneNum;
 }
@@ -88,8 +92,7 @@ void CoreEngine::SetCurrentScene(int sceneNum_)
 
 void CoreEngine::Update(const float deltaTime_) 
 {
-	if (gameInterface)
-	{
+	if (gameInterface) {
 		gameInterface->Update(deltaTime_);
 		std::cout << deltaTime_ << std::endl;
 	}
@@ -97,10 +100,9 @@ void CoreEngine::Update(const float deltaTime_)
 
 void CoreEngine::Render()
 {
-	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+	glClearColor(5.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	if (gameInterface)
-	{
+	if (gameInterface) {
 		gameInterface->Render();
 	}
 	SDL_GL_SwapWindow(window->GetWindow());
@@ -108,6 +110,8 @@ void CoreEngine::Render()
 
 void CoreEngine::OnDestroy() 
 {
+	ShaderHandler::GetInstance()->OnDestroy();
+
 	delete gameInterface;
 	gameInterface = nullptr;
 
@@ -117,4 +121,3 @@ void CoreEngine::OnDestroy()
 	SDL_Quit();
 	exit(0);
 }
-

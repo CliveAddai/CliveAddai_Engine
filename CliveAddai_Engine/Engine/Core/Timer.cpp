@@ -1,6 +1,6 @@
 #include "Timer.h"
 
-Timer::Timer() : prevTicks(0), currentTicks(0) 
+Timer::Timer() : prevTicks(0), currentTicks(0)
 {
 
 }
@@ -10,12 +10,12 @@ Timer::~Timer()
 
 }
 
-void Timer::Start()
+void Timer::Start() 
 {
 	prevTicks = currentTicks = SDL_GetTicks();
 }
 
-void Timer::UpdateFrameTicks()
+void Timer::UpdateFrameTicks() 
 {
 	prevTicks = currentTicks;
 	currentTicks = SDL_GetTicks();
@@ -26,15 +26,14 @@ float Timer::GetDeltaTime() const
 	return (currentTicks - prevTicks) / MILLI_TO_SEC;
 }
 
-unsigned int Timer::GetSleepTime(const unsigned int fps_) const 
-{
+unsigned int Timer::GetSleepTime(const unsigned int fps_) const {
 	unsigned int milliSecsPerFrame = MILLI_TO_SEC / fps_;
 	if (milliSecsPerFrame == 0) 
 	{
 		return 0;
 	}
 	unsigned int sleepTime = milliSecsPerFrame - (SDL_GetTicks() - currentTicks);
-	if (sleepTime > milliSecsPerFrame) 
+	if (sleepTime > milliSecsPerFrame)
 	{
 		return milliSecsPerFrame;
 	}

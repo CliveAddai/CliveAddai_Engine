@@ -9,8 +9,9 @@
 #include "Scene.h"
 
 #include "../Rendering/3D/GameObject.h"
+#include"../Graphics/ShaderHandler.h"
 
-class CoreEngine
+class CoreEngine 
 {
 public:
 	CoreEngine(const CoreEngine&) = delete;

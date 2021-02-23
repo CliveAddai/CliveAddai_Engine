@@ -2,7 +2,7 @@
 #define STARTSCENE_H
 
 #include "../../Engine/Core/CoreEngine.h"
-#include "../../Engine/Core/Timer.h"
+
 
 class StartScene : public Scene 
 {
@@ -15,8 +15,7 @@ public:
 	void Render() override;
 
 
-private:
-	GameObject* shape;
+
 };
 
 #endif // !STARTSCENE_H

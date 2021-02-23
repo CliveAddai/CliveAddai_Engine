@@ -5,7 +5,7 @@
 
 constexpr float MILLI_TO_SEC = 1000.0f;
 
-class Timer 
+class Timer
 {
 public:
 	Timer(const Timer&) = delete;
@@ -20,7 +20,6 @@ public:
 	unsigned int GetSleepTime(const unsigned int fps_) const;
 	float GetCurrentTickMilli() const;
 	float GetCurrentTickSec() const;
-
 private:
 	unsigned int prevTicks;
 	unsigned int currentTicks;

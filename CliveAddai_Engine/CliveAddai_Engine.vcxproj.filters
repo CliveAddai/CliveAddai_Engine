@@ -44,6 +44,9 @@
     <ClCompile Include="Engine\Rendering\3D\Model.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Graphics\ShaderHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Core\CoreEngine.h">
@@ -62,5 +65,10 @@
     <ClInclude Include="Engine\Rendering\3D\GameObject.h" />
     <ClInclude Include="Engine\Rendering\3D\Mesh.h" />
     <ClInclude Include="Engine\Rendering\3D\Model.h" />
+    <ClInclude Include="Engine\Graphics\ShaderHandler.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Engine\Shaders\ColourVertexShader.glsl" />
+    <None Include="Engine\Shaders\ColourFragmentShader.glsl" />
   </ItemGroup>
 </Project>
