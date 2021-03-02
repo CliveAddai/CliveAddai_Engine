@@ -1,2 +1,12 @@
-﻿  GameScene.cpp
+﻿  Camera.cpp
+  CoreEngine.cpp
+  GameObject.cpp
+  Game1.cpp
+  GameScene.cpp
+  Main.cpp
+  Window.cpp
+  StartScene.cpp
+  Mesh.cpp
+  Model.cpp
+  Generating Code...
   CliveAddai_Engine.vcxproj -> C:\Users\Owner\Desktop\CliveAddai_GameEngines4\CliveAddai_Engine\Debug\CliveAddai_Engine.exe

@@ -4,8 +4,7 @@
 #include "../../Engine/Core/CoreEngine.h"
 #include "../../Engine/Core/Timer.h"
 
-class GameScene : public Scene 
-{
+class GameScene : public Scene {
 public:
 	GameScene();
 	virtual ~GameScene();
@@ -14,9 +13,9 @@ public:
 	void Update(const float deltaTime_) override;
 	void Render() override;
 
-
 private:
 	GameObject* shape;
+	Model* model1;
 };
 
 #endif // !GAMESCENE_H
